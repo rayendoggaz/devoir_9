@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+      <label>Categories </label>
+      <select class="form-control form-control-lg" id="idGenre" name="idGenre" [(ngModel)]="idgenre" (change)="onChange()">
+        <option *ngFor="let genre of genres" value="{{genre.idgenre}}">
+          {{genre.nomgenre}}
+        </option>
+      </select>
+    </div>
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Concert name</th>
+              <th>Ticket Price</th>
+              <th>Date</th>
+              <th>Genre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let concert of concerts">
+              <td>{{concert.idconcert}}</td>
+              <td>{{concert.nomconcert}}</td>
+              <td>{{concert.prixconcert}}</td>
+              <td>{{concert.dateCreation | date: 'dd/MM/yyyy' }}</td>
+              <td>{{concert.genre.nomgenre}}</td>
+              <!-- <td><a (click)="supprimerconcert(concert)">delete</a></td>
+              <td><a class="btn btn-success" [routerLink]="['/updateconcert',concert.idconcert]">Modify</a></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

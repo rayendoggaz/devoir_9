@@ -1,0 +1,33 @@
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Produit en tapant</label>
+    <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+    </div>
+</form>   
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Concert name</th>
+            <th>Ticket Price</th>
+            <th>Date</th>
+            <th>Genre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let concert of concerts  | searchFilter: searchTerm">
+            <td>{{concert.idconcert}}</td>
+            <td>{{concert.nomconcert}}</td>
+            <td>{{concert.prixconcert}}</td>
+            <td>{{concert.dateCreation | date: 'dd/MM/yyyy' }}</td>
+            <td>{{concert.genre.nomgenre}}</td>
+            <!-- <td><a (click)="supprimerconcert(concert)">delete</a></td>
+            <td><a class="btn btn-success" [routerLink]="['/updateconcert',concert.idconcert]">Modify</a></td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

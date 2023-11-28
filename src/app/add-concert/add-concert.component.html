@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <h2>Add Concert :</h2>
+    </div>
+    <form >
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID concert</label>
+            <input type="text" [(ngModel)]= "newconcert.idconcert" name="idconcert" class="form-control">
+        </div>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Concert name</label>
+            <input type="text"[(ngModel)]= "newconcert.nomconcert" name="nomconcert" class="form-control">
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Ticket price</label>
+            <input type="number" [(ngModel)]= "newconcert.prixconcert" name="prixconcert" class="form-control">
+        </div>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Date</label>
+            <input type="date" [(ngModel)]= "newconcert.dateCreation" name="dateCreation" class="form-control">
+        </div>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Genre</label>
+            <select class="form-control form-control-lg" id="idgenre" name="idgenre" [(ngModel)]="newIdgenre">
+                <option *ngFor="let genre of genres" [value]="genre.idgenre">
+                    {{genre.nomgenre}}
+                </option>
+            </select>
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="addconcert()"class="btn btn-success">Add concert</button>
+            <div>
+                <h3>{{message}}</h3>
+            </div>
+        </div>
+    </form>
+</div>
